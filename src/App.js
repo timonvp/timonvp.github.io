@@ -3,8 +3,8 @@ import RECIPE_DATA from './mock-data';
 
 export default function App() {
   return (
-    <div className="App">
-      {RECIPE_DATA.map(v => <Recipe id={v.id} name={v.name} />)}
+    <div className='App bg-gray-900 py-px'>
+      {RECIPE_DATA.map(v => <Recipe {...v} key={v.id} />)}
     </div>
   );
 }
