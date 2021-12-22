@@ -5,11 +5,17 @@ const Ingredient = (props) => {
 
 export default function Recipe(props) {
     const {name, ingredients, preparation, people, duration} = props;
-    return(<div className='bg-gray-800 m-5 py-3 px-5 text-gray-200'>
-        <h1 className='m-auto'>{name}</h1>
-        {ingredients.map((v, i) => <Ingredient {...v} key={i} />)}
-        <p>{preparation}</p>
-        <p>Personen: {people}</p>
-        <p>Tijdsduur: {duration}min</p>
+    return(<div className='bg-gray-800 m-5 px-6 py-3 text-gray-200'>
+        <div className='flex pb-3 items-center'>
+            <h1 className='text-center flex-grow text-lg'>{name}</h1>
+            <div className='flex-none'>
+                <p>Tijdsduur: {duration}min</p>
+                <p>Personen: {people}</p>
+            </div>
+        </div>
+        <div className='flex'>
+            <div className='pr-8 text-sm min-w-max'>{ingredients.map((v, i) => <Ingredient {...v} key={i} />)}</div>
+            <p className='text-justify text-xs overflow-hidden'>{preparation}</p>
+        </div>
     </div>);
 }
