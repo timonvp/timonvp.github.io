@@ -1,16 +1,22 @@
-import Recipe from './components/Recipe';
-import Login from './components/Login';
-import { useFetch } from './hooks/useFetch';
-import { AuthProvider } from './contexts/AuthProvider';
+import { AuthProvider, useSession } from './contexts/AuthProvider';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
 
 export default function App() {
-  const { data } = useFetch('http://localhost:9000/api/recipes');
   return (
-    <AuthProvider>
-      <Login />
-      <div className='App grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
-        {data.map(v => <Recipe {...v} key={v.id} />)}
-      </div>
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
+    </BrowserRouter>
   );
+}
+
+function Router() {
+  const { session } = useSession();
+  return (<Routes>
+  <Route path={'/'} exact element={<Home />} />
+  <Route path={'/login'} exact element={<Login />} />
+</Routes>);
 }
