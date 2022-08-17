@@ -3,7 +3,7 @@ import config from '../config.json';
 
 export const login = async (username, password) => {
 	const {
-		data
+		data: {data}
 	} = await axios.post(`${config.base_url}login`, {
 		username,
 		password

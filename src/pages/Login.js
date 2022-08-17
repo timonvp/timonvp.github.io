@@ -50,7 +50,7 @@ export default function Login() {
             defaultValue=""
             data-cy="username_input"
             placeholder="Gebruikersnaam"
-            autocomplete="off"
+            autoComplete="off"
             validation={validationRules.username} />
 
           <LabelInput
@@ -59,7 +59,7 @@ export default function Login() {
             defaultValue=""
             data-cy="password_input"
             placeholder="Wachtwoord"
-            autocomplete="off"
+            autoComplete="off"
             validation={validationRules.password} />
 
           <div className="flex flex-row justify-end">
