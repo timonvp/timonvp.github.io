@@ -1,6 +1,5 @@
 import { createContext, useMemo, useState, useCallback, useEffect, useContext } from 'react';
-//import * as usersApi from '../api/users';
-//import * as api from '../api';
+import * as userApi from '../api/user';
 import config from '../config.json';
 
 const JWT_TOKEN_KEY = config.token_key;
@@ -78,7 +77,7 @@ export const AuthProvider = ({
     setReady(token && stillValid);
 
     if (!user && stillValid) {
-      //user = await usersApi.getUserById(userId);
+      //user = await userApi.getUserById(userId);
     }
     setUser(user);
   }, []);
@@ -87,12 +86,12 @@ export const AuthProvider = ({
     setSession(token);
   }, [token, setSession]);
 
-  const login = useCallback(async (email, password) => {
+  const login = useCallback(async (username, password) => {
     try {
       setLoading(true);
       setError(null);
-      //const { token, user } = await usersApi.login(email, password);
-      //await setSession(token, user);
+      const { token, user } = await userApi.login(username, password);
+      await setSession(token, user);
       return true;
     } catch (error) {
       console.error(error);
@@ -107,7 +106,7 @@ export const AuthProvider = ({
     try {
       setLoading(true);
       setError(null);
-      //const { token, user } = await usersApi.register(data);
+      //const { token, user } = await userApi.register(data);
       //await setSession(token, user);
       return true;
     } catch (error) {
