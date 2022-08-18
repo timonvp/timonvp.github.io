@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axios } from '../api';
 import {useState, useEffect, useCallback} from 'react';
 
 export function useFetch(uri) {

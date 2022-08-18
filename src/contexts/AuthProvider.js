@@ -1,6 +1,7 @@
 import { createContext, useMemo, useState, useCallback, useEffect, useContext } from 'react';
 import * as userApi from '../api/user';
 import config from '../config.json';
+import * as api from '../api';
 
 const JWT_TOKEN_KEY = config.token_key;
 const AuthContext = createContext();
@@ -72,7 +73,7 @@ export const AuthProvider = ({
       token = null;
     }
 
-    //api.setAuthToken(token);
+    api.setAuthToken(token);
     setToken(token);
     setReady(token && stillValid);
 
