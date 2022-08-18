@@ -34,8 +34,7 @@ export default function Login() {
 
   return (
     <FormProvider {...methods}>
-      <div className="mx-auto w-1/4">
-        <h1>Sign in</h1>
+      <div className="mx-auto w-1/4 h-screen flex items-center">
         <form className="grid grid-cols-1 gap-y-4" onSubmit={handleSubmit(handleLogin)}>
           {
             error ? (
@@ -63,12 +62,19 @@ export default function Login() {
             validation={validationRules.password} />
 
           <div className="flex flex-row justify-end">
+          <button
+              data-cy="submit_btn"
+              type=""
+              disabled={loading}
+              className="disabled:opacity-50 text-white px-4 py-2 mr-2">
+              Registreer
+            </button>
             <button
               data-cy="submit_btn"
               type="submit"
               disabled={loading}
-              className="disabled:opacity-50">
-              Sign in
+              className="disabled:opacity-50 text-white bg-gray-800 px-4 py-2 rounded-sm">
+              Login
             </button>
           </div>
         </form>
