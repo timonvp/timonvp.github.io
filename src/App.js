@@ -14,9 +14,13 @@ export default function App() {
 }
 
 function Router() {
-  const { session } = useSession();
+  const { isAuthed } = useSession();
   return (<Routes>
-  <Route path={'/'} exact element={<Home />} />
-  <Route path={'/login'} exact element={<Login />} />
+    {isAuthed ? <>
+      <Route path={'/'} exact element={<Home />} />
+    </> : <>
+    <Route path={'/login'} exact element={<Login />} />
+    <Route path={'*'} element={<Navigate to='/login' />} />
+    </>}
 </Routes>);
 }
