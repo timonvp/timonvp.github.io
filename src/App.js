@@ -2,6 +2,8 @@ import { AuthProvider, useSession } from './contexts/AuthProvider';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Register from './pages/Register';
+import Recipe from './pages/Recipe';
 
 export default function App() {
   return (
@@ -18,9 +20,10 @@ function Router() {
   return (<Routes>
     {isAuthed ? <>
       <Route path={'/'} exact element={<Home />} />
+      <Route path={'/recipe/:id'} exact element={<Recipe />} />
     </> : <>
     <Route path={'/login'} exact element={<Login />} />
-    <Route path={'/register'} exact element={<Home />} />
+    <Route path={'/register'} exact element={<Register />} />
     <Route path={'*'} element={<Navigate to='/login' />} />
     </>}
 </Routes>);

@@ -10,3 +10,13 @@ export const login = async (username, password) => {
 	});
 	return data;
 };
+
+export const register = async (username, password) => {
+	const {
+		data: {data}
+	} = await axios.post(`${config.base_url}users`, {
+		username,
+		password
+	});
+	return data;
+};

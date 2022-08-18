@@ -96,19 +96,20 @@ export const AuthProvider = ({
       return true;
     } catch (error) {
       console.error(error);
-      setError('Login failed, try again');
+      setError('Gebruikersnaam & wachtwoord komen niet overeen.');
       return false;
     } finally {
       setLoading(false);
     }
   }, [setSession]);
 
-  const register = useCallback(async (data) => {
+  const register = useCallback(async ({username, password}) => {
     try {
       setLoading(true);
       setError(null);
-      //const { token, user } = await userApi.register(data);
-      //await setSession(token, user);
+      const { token, user } = await userApi.register(username, password);
+      console.warn(token, user)
+      await setSession(token, user);
       return true;
     } catch (error) {
       setError(error);

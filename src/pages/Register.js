@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import LabelInput from '../components/LabelInput';
-import { useLogin, useSession } from '../contexts/AuthProvider';
+import { useRegister, useSession } from '../contexts/AuthProvider';
 import { useNavigate, Link } from 'react-router-dom';
 
 const validationRules = {
@@ -13,29 +13,29 @@ const validationRules = {
   }
 };
 
-export default function Login() {
+export default function Register() {
   const navigate = useNavigate();
   const { loading, error, isAuthed } = useSession();
-  const login = useLogin();
+  const register = useRegister();
   const methods = useForm();
   const {
     handleSubmit,
     reset,
   } = methods;
 
-  const handleLogin = useCallback(async ({ username, password }) => {
-    const success = await login(username, password);
+  const handleRegister = useCallback(async ({ username, password }) => {
+    const success = await register({username, password});
 
     if (success) {
       // we can't come back to login
       navigate('/', {replace: true});
     }
-  }, [navigate, login]);
+  }, [navigate, register]);
 
   return (
     <FormProvider {...methods}>
       <div className="mx-auto w-1/4 h-screen flex items-center">
-        <form className="grid grid-cols-1 gap-y-4" onSubmit={handleSubmit(handleLogin)}>
+        <form className="grid grid-cols-1 gap-y-4" onSubmit={handleSubmit(handleRegister)}>
           {
             error ? (
               <p className="text-red-500">
@@ -62,13 +62,13 @@ export default function Login() {
             validation={validationRules.password} />
 
           <div className="flex flex-row justify-end">
-          <Link to="/register" className='px-4 py-2 text-gray-400' >Registreer</Link>
+          <Link to="/login" className='px-4 py-2 text-gray-400 text-sm' >Terug naar inloggen</Link>
             <button
               data-cy="submit_btn"
               type="submit"
               disabled={loading}
               className="disabled:opacity-50 text-white bg-gray-800 px-4 py-2 rounded-sm">
-              Login
+              Registreer
             </button>
           </div>
         </form>
