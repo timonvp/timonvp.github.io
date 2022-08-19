@@ -9,7 +9,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     env:
-      REACT_APP_API_PREFIX: '"https://recepten-app.herokuapp.com"'
+      REACT_APP_API_PREFIX: '"https://recepten-app.herokuapp.com/api"'
 
     steps:
     - name: Checkout
