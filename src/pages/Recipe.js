@@ -12,13 +12,14 @@ export default function Recipe() {
     const { data } = useFetch(`http://localhost:9000/api/recipes/${params.id}`);
     if (!data || data.length === 0) {return (<Navbar />);}
     console.log(data);
-    const {name, ingredients, preparation, people, duration} = data;
+    const {name, ingredients, preparation, people, duration, username} = data;
     return(<>
         <Navbar />
         <div className='pt-24' >
             <div className='bg-gray-800 m-5 px-6 py-3 text-gray-200' >
                 <div className='flex pb-3 items-center'>
                     <h1 className='text-center flex-grow text-lg'>{name}</h1>
+                    <p className='mr-10 text-sm text-gray-400' >door {username}</p>
                     <div className='flex-none'>
                         <p>Tijdsduur: {duration}min</p>
                         <p>Personen: {people}</p>

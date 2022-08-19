@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import OtherRecipes from './pages/OtherRecipes';
 import Recipe from './pages/Recipe';
+import AddRecipe from './pages/AddRecipe';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ function Router() {
     {isAuthed ? <>
       <Route path={'/'} exact element={<Home />} />
       <Route path={'/other'} exact element={<OtherRecipes />} />
+      <Route path={'/add'} exact element={<AddRecipe />} />
       <Route path={'/recipe/:id'} exact element={<Recipe />} />
     </> : <>
     <Route path={'/login'} exact element={<Login />} />

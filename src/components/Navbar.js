@@ -10,7 +10,7 @@ export default function Navbar() {
         <div className="flex ml-auto">
             <Link className="ml-auto mr-6 cursor-pointer" to='/' >Eigen Recepten</Link>
             <Link className="ml-auto mr-6 cursor-pointer" to='/other' >Andere Recepten</Link>
-            <Link className="ml-auto mr-6 cursor-pointer" to='/' >Recept Toevoegen</Link>
+            <Link className="ml-auto mr-6 cursor-pointer" to='/add' >Recept Toevoegen</Link>
         </div>
         <div className="ml-auto mr-4 cursor-pointer" onClick={logout} >Uitloggen</div>
     </div>);
