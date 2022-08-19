@@ -96,7 +96,7 @@ export const AuthProvider = ({
       return true;
     } catch (error) {
       console.error(error);
-      setError('Gebruikersnaam & wachtwoord komen niet overeen.');
+      setError('Gebruikersnaam en wachtwoord komen niet overeen.');
       return false;
     } finally {
       setLoading(false);
@@ -112,7 +112,7 @@ export const AuthProvider = ({
       await setSession(token, user);
       return true;
     } catch (error) {
-      setError(error);
+      setError(error.message);
       return false;
     } finally {
       setLoading(false);
