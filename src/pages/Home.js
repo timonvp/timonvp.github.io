@@ -3,7 +3,7 @@ import { useFetch } from '../hooks/useFetch';
 import Navbar from '../components/Navbar';
 
 export default function Home() {
-    const { data } = useFetch('http://localhost:9000/api/recipes/own');
+    const { data } = useFetch('/api/recipes/own');
     return (<>
         <Navbar />
         <div className='App grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 pt-28' >

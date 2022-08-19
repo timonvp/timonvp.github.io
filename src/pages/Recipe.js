@@ -9,7 +9,7 @@ const Ingredient = (props) => {
 
 export default function Recipe() {
     const params = useParams();
-    const { data } = useFetch(`http://localhost:9000/api/recipes/${params.id}`);
+    const { data } = useFetch(`/api/recipes/${params.id}`);
     if (!data || data.length === 0) {return (<Navbar />);}
     console.log(data);
     const {name, ingredients, preparation, people, duration, username} = data;

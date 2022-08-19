@@ -4,7 +4,7 @@ import LabelInput from '../components/LabelInput';
 import Textarea from '../components/TextArea';
 import { useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { axios } from "../api";
+import { apiPrefix, axios } from "../api";
 import config from '../config.json';
 
 const validationRules = {
@@ -25,7 +25,7 @@ export default function AddRecipe() {
   } = methods;
 
   const handleAddRecipe = useCallback(async ({ name, people, duration, preparation, ingredients='[]' }) => {
-    const {data : {data : newRecipe}} = await axios.post(`${config.base_url}recipes`, {name, people, duration, preparation, ingredients});
+    const {data : {data : newRecipe}} = await axios.post(`${apiPrefix}/recipes`, {name, people, duration, preparation, ingredients});
 
     if (newRecipe) {
       // we can't come back to login

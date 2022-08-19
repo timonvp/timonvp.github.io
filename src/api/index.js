@@ -1,8 +1,11 @@
 import axiosRoot from 'axios';
 import config from '../config.json';
 
+export const apiPrefix = process.env.REACT_APP_API_PREFIX || 'http://localhost:9000';
+console.log(apiPrefix);
+
 export const axios = axiosRoot.create({
-	baseURL: config.base_url,
+	baseURL: apiPrefix+'/',
     headers: {
         Authorization: `Bearer ${localStorage.getItem(config.token_key)}`,
     }

@@ -1,4 +1,4 @@
-import { axios } from '../api';
+import { apiPrefix, axios } from '../api';
 import {useState, useEffect, useCallback} from 'react';
 
 export function useFetch(uri) {
@@ -10,7 +10,7 @@ export function useFetch(uri) {
     try {
       setError();
       setLoading(true);
-      const {data} = await axios.get(uri);
+      const {data} = await axios.get(apiPrefix+uri);
       setData(data.data);
       setLoading(false);
     } catch (error) {
