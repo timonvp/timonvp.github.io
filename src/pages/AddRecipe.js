@@ -1,11 +1,10 @@
 import { useCallback } from 'react';
-import { FormProvider, useForm, useFormContext } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import LabelInput from '../components/LabelInput';
 import Textarea from '../components/TextArea';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { apiPrefix, axios } from "../api";
-import config from '../config.json';
 
 const validationRules = {
   username: {
@@ -21,7 +20,6 @@ export default function AddRecipe() {
   const methods = useForm();
   const {
     handleSubmit,
-    reset,
   } = methods;
 
   const handleAddRecipe = useCallback(async ({ name, people, duration, preparation, ingredients='[]' }) => {

@@ -15,12 +15,11 @@ const validationRules = {
 
 export default function Login() {
   const navigate = useNavigate();
-  const { loading, error, isAuthed } = useSession();
+  const { loading, error } = useSession();
   const login = useLogin();
   const methods = useForm();
   const {
     handleSubmit,
-    reset,
   } = methods;
 
   const handleLogin = useCallback(async ({ username, password }) => {

@@ -15,12 +15,11 @@ const validationRules = {
 
 export default function Register() {
   const navigate = useNavigate();
-  const { loading, error, isAuthed } = useSession();
+  const { loading, error } = useSession();
   const register = useRegister();
   const methods = useForm();
   const {
     handleSubmit,
-    reset,
   } = methods;
 
   const handleRegister = useCallback(async ({ username, password }) => {

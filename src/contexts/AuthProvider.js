@@ -62,7 +62,7 @@ export const AuthProvider = ({
   const [user, setUser] = useState(null);
 
   const setSession = useCallback(async (token, user) => {
-    const { exp, userId } = parseJwt(token);
+    const { exp } = parseJwt(token);
     const expiry = parseExp(exp);
     const stillValid = expiry >= new Date();
 
