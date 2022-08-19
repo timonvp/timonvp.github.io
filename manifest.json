@@ -1,0 +1,21 @@
+{
+  "short_name": "Recepten App",
+  "name": "Recepten Applicatie",
+  "icons": [
+    {
+      "src": "recipe192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "recipe512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#F26900",
+  "background_color": "#121828",
+  "scope": "/"
+}
